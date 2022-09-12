@@ -3,12 +3,15 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+
 import electron from 'vite-plugin-electron'
 
 import path from 'path'
 
 export default ({ mode }: { mode: string }) => {
-  console.log('mode', mode)
   return defineConfig({
     plugins: [
       vue(),
@@ -33,6 +36,12 @@ export default ({ mode }: { mode: string }) => {
             }
           }
         }
+      }),
+      AutoImport({
+        resolvers: [ElementPlusResolver()]
+      }),
+      Components({
+        resolvers: [ElementPlusResolver()]
       })
     ],
     resolve: {
