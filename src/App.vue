@@ -1,29 +1,16 @@
 <template>
-  <header>
-    <img
-      alt="Vue logo"
-      class="logo"
-      src="@/assets/logo.svg"
-      width="125"
-      height="125"
-    />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
   <RouterView />
+  <el-button type="primary" @click="sendElectron('minimize')">最小化</el-button>
+  <el-button type="primary" @click="sendElectron('maximize')">最大化</el-button>
 </template>
 
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+
+const sendElectron = (message: string) => {
+  const { electron } = window as any
+  electron.send(message)
+}
 </script>
 
 <style scoped>
