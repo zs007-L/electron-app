@@ -20,5 +20,5 @@ export function createMenu(win: BrowserWindow) {
     }
   ]
   const menu = Menu.buildFromTemplate(menuList)
-  Menu.setApplicationMenu(menu)
+  Menu.setApplicationMenu(null)
 }

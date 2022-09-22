@@ -13,7 +13,8 @@ const createWindow = () => {
     height: 600,
     webPreferences: {
       preload: path.join(__dirname, '../preload/index.js')
-    }
+    },
+    frame: false
   })
   createEvent(win)
   createMenu(win)
@@ -22,7 +23,7 @@ const createWindow = () => {
     win.loadFile(indexHTML)
   } else {
     win.loadURL(URL)
-    // win.webContents.openDevTools()
+    win.webContents.openDevTools()
   }
 
   win.on('close', (e: Event) => {
