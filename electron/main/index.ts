@@ -23,7 +23,7 @@ const createWindow = () => {
     win.loadFile(indexHTML)
   } else {
     win.loadURL(URL)
-    win.webContents.openDevTools()
+    // win.webContents.openDevTools()
   }
 
   win.on('close', (e: Event) => {
