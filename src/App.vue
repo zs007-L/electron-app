@@ -13,5 +13,3 @@ const sendElectron = (message: string) => {
   electron.send(message)
 }
 </script>
-
-<style scoped></style>

@@ -13,8 +13,8 @@ const createWindow = () => {
     height: 600,
     webPreferences: {
       preload: path.join(__dirname, '../preload/index.js')
-    },
-    frame: false
+    }
+    // frame: false
   })
   createEvent(win)
   createMenu(win)
